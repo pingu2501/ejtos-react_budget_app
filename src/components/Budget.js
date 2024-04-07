@@ -2,12 +2,9 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 const Budget = () => {
-  const { budget, expenses, currency, dispatch } = useContext(AppContext);
-  console.log(budget);
+  const { budget, currency, dispatch } = useContext(AppContext);
   const [newBudget, setNewBudget] = useState(budget);
-  const totalExpenses = expenses?.reduce((total, item) => {
-    return (total += item.cost);
-  }, 0);
+
   const handleBudgetChange = (event) => {
     dispatch({
       type: "SET_BUDGET",
